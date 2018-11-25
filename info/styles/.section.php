@@ -1,0 +1,6 @@
+<?
+$sSectionName = "Стили";
+$arDirProperties = Array(
+
+);
+?>
