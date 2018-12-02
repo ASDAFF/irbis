@@ -34,3 +34,4 @@ php_value mbstring.func_overload 2
 php_value mbstring.internal_encoding UTF-8
 php_value display_errors 1
 php_value max_input_vars 50000
+php_value pcre.recursion_limit 100000
