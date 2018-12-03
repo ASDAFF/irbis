@@ -10,3 +10,9 @@
 
 /* Hide compare button */
 /* a.compare_item { display: none !important;  }*/
+
+
+.logo-row .logo img,
+.logo-row .logo svg {
+    width: auto;
+}
