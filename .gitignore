@@ -3,5 +3,6 @@ Thumbs.db
 /.idea/
 /bitrix/*
 /upload/*
+/local/api/
 !/bitrix/templates/aspro_next/*
 !/bitrix/php_interface/*
