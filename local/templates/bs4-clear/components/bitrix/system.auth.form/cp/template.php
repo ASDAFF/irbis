@@ -1,7 +1,8 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 <? CJSCore::Init(); ?>
 
-<form id="avtorization-form" name="system_auth_form<?= $arResult["RND"] ?>" method="post" target="_top"
+<form class="form_signin" id="avtorization-form" name="system_auth_form<?= $arResult["RND"] ?>" method="post"
+      target="_top"
       action="<?= $arParams["PERSONAL"] ?>?login=yes">
     <? if ($arResult["BACKURL"] <> ''): ?>
         <input type="hidden" name="backurl" value="<?= $arResult["BACKURL"] ?>"/>
@@ -10,9 +11,14 @@
                                                                value="<?= $value ?>" /><? endforeach ?>
     <input type="hidden" name="AUTH_FORM" value="Y"/>
     <input type="hidden" name="TYPE" value="AUTH"/>
-
+    <div class="row">
+        <div class="col-12 auth_logo text-center"><img src="/images/mainLogo.png"></div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center pt-4">Войдите, чтобы получить доступ к партнерскому порталу</div>
+    </div>
     <div class="row" data-sid="USER_LOGIN_POPUP">
-        <div class="col-md-12 authInputBlock">
+        <div class="col-md-12 authInputBlock pt-4 text-left">
             <label for="USER_LOGIN_POPUP"><?= GetMessage("AUTH_LOGIN") ?> <span class="required-star">*</span></label>
             <div class="input">
                 <input type="text" name="USER_LOGIN" id="USER_LOGIN_POPUP" class="required" maxlength="50"
@@ -21,12 +27,14 @@
         </div>
     </div>
     <div class="row" data-sid="USER_PASSWORD_POPUP">
-        <div class="col-md-12 authInputBlock pt-4">
-            <label for="USER_PASSWORD_POPUP"><?= GetMessage("AUTH_PASSWORD") ?> <span class="required-star">*</span></label>
+        <div class="col-md-12 authInputBlock pt-4 text-left">
+            <label for="USER_PASSWORD_POPUP"><?= GetMessage("AUTH_PASSWORD") ?> <span
+                        class="required-star">*</span></label>
             <div class="input">
                 <input type="password" name="USER_PASSWORD" id="USER_PASSWORD_POPUP"
                        class="required password" maxlength="50" value="" autocomplete="on"
                        tabindex="2"/>
+                <i class="fas fa-eye"></i>
             </div>
         </div>
     </div>
@@ -55,13 +63,20 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-8 pt-4">
-            <button type="submit" class="btn auth_btn" name="Login" value="" tabindex="4"><?= GetMessage("AUTH_LOGIN_BUTTON") ?></button>
+            <button type="submit" class="btn auth_btn" name="Login" value=""
+                    tabindex="4"><?= GetMessage("AUTH_LOGIN_BUTTON") ?></button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center pt-4">
+            <a class="forgot pull-right" href="<?= $arResult["AUTH_FORGOT_PASSWORD_URL"]; ?>"
+               tabindex="3"><?= GetMessage("AUTH_FORGOT_PASSWORD_2") ?></a>
         </div>
     </div>
     <div class="row">
         <div class="col text-center pt-2">
-            <a class="forgot pull-right" href="<?= $arResult["AUTH_FORGOT_PASSWORD_URL"]; ?>"
-               tabindex="3"><?= GetMessage("AUTH_FORGOT_PASSWORD_2") ?></a>
+            <a class="forgot pull-right" target="_blank"
+               href="https://b24.irbis-td.ru/pub/form/2_registratsiya_na_korporativnom_portale/djbhhw/"><?= GetMessage("AUTH_REGISTER") ?></a>
         </div>
     </div>
 </form>
