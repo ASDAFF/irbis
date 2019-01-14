@@ -12,15 +12,23 @@
     <input type="hidden" name="AUTH_FORM" value="Y"/>
     <input type="hidden" name="TYPE" value="AUTH"/>
     <div class="row">
-        <div class="authBack">
+        <div class="col-2 authBack text-left">
             <a href="http://td-irbis.ru/">
                 <i class="fas fa-chevron-left"></i>
             </a>
         </div>
-        <div class="col-12 auth_logo text-center"><img src="/images/mainLogo.png"></div>
+        <div class="col-10 text-right">
+            <a class="forgot pull-right" target="_blank"
+                                          href="https://b24.irbis-td.ru/pub/form/2_registratsiya_na_korporativnom_portale/djbhhw/"><?= GetMessage("AUTH_REGISTER") ?></a>
+        </div>
     </div>
     <div class="row">
-        <div class="col-12 text-left pt-4">Войдите, чтобы получить доступ к партнерскому порталу</div>
+        <div class="col-12 auth_logo text-left pt-4">
+            <img src="/images/mainLogo.png">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-left pt-1">Войдите, чтобы получить доступ к партнерскому порталу</div>
     </div>
     <div class="row" data-sid="USER_LOGIN_POPUP">
         <div class="col-md-12 authInputBlock pt-4 text-left">
@@ -80,8 +88,7 @@
     </div>
     <div class="row">
         <div class="col text-center pt-2">
-            <a class="forgot pull-right" target="_blank"
-               href="https://b24.irbis-td.ru/pub/form/2_registratsiya_na_korporativnom_portale/djbhhw/"><?= GetMessage("AUTH_REGISTER") ?></a>
+
         </div>
     </div>
 </form>

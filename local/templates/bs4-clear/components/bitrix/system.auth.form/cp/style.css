@@ -31,11 +31,11 @@ body {
     box-shadow: 0 0 30px rgba(0,0,0,0.7);
 }
 .authBack {
-    position: absolute;
-    height: auto;
-    padding-top: 30px;
-    padding-left: 20px;
-    z-index: 9999;
+    /*position: absolute;*/
+    /*height: auto;*/
+    /*padding-top: 30px;*/
+    /*padding-left: 20px;*/
+    /*z-index: 9999;*/
 }
 .authBack a{
     cursor: pointer!important;
