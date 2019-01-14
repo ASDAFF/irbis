@@ -12,10 +12,15 @@
     <input type="hidden" name="AUTH_FORM" value="Y"/>
     <input type="hidden" name="TYPE" value="AUTH"/>
     <div class="row">
+        <div class="authBack">
+            <a href="http://td-irbis.ru/">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+        </div>
         <div class="col-12 auth_logo text-center"><img src="/images/mainLogo.png"></div>
     </div>
     <div class="row">
-        <div class="col-12 text-center pt-4">Войдите, чтобы получить доступ к партнерскому порталу</div>
+        <div class="col-12 text-left pt-4">Войдите, чтобы получить доступ к партнерскому порталу</div>
     </div>
     <div class="row" data-sid="USER_LOGIN_POPUP">
         <div class="col-md-12 authInputBlock pt-4 text-left">
@@ -80,3 +85,6 @@
         </div>
     </div>
 </form>
+
+<!--    <div class="col-6 authCopy_text text-center">© Все права защищены ООО "Ирбис ТД" 2005---><?//=date("Y")?><!--</div>-->
+<!--    <div class="col-6 authCopy_text text-center">Политика конфиденциальности и файлы cookie</div>-->
