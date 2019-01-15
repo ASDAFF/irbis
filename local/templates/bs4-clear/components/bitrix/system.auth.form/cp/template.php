@@ -66,7 +66,7 @@
             </div>
         </div>
     <? endif ?>
-
+    <!--
     <div class="row">
         <div class="col pt-2">
             <input type="checkbox" id="USER_REMEMBER_frm" name="USER_REMEMBER" value="Y" tabindex="5"/>
@@ -74,6 +74,7 @@
                    tabindex="5"><? echo GetMessage("AUTH_REMEMBER_SHORT") ?></label>
         </div>
     </div>
+    -->
     <div class="row justify-content-center">
         <div class="col-8 pt-4">
             <button type="submit" class="btn auth_btn" name="Login" value=""
