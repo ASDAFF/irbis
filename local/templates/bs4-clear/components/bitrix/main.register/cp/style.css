@@ -17,3 +17,7 @@
     text-align: center;
     text-transform: uppercase;
 }
+.errText {
+    font-size: 14px;
+    line-height: 1;
+}

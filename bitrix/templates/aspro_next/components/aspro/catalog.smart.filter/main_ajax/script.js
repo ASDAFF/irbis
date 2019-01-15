@@ -1054,6 +1054,8 @@ BX.Iblock.SmartFilter = (function()
 				return false;
 			};
 		}
+		
+		$('.bx_filter .bx_filter_parameters_box_container input').prop('disabled', false);
 
 		if (!this.isTouch)
 		{
@@ -1152,6 +1154,8 @@ BX.Iblock.SmartFilter = (function()
 				return false;
 			};
 		}
+		
+		$('.bx_filter .bx_filter_parameters_box_container input').prop('disabled', false);
 
 		if (!this.isTouch)
 		{

@@ -148,7 +148,7 @@ JCSmartFilter.prototype.reload = function(input)
 				var set_filter = BX('set_filter');
 				set_filter.disabled = true;
 			}
-			console.log(this.ajaxURL)
+
 			this.curFilterinput = input;
 			BX.ajax.loadJSON(
 				this.ajaxURL,
@@ -355,7 +355,7 @@ JCSmartFilter.prototype.gatherInputsValues = function (values, elements)
 		for(var i = 0; i < elements.length; i++)
 		{
 			var el = elements[i];
-			if (el.disabled || !el.type)
+			if (!el.type)
 				continue;
 
 			switch(el.type.toLowerCase())
@@ -862,6 +862,8 @@ BX.Iblock.SmartFilter = (function()
 				return false;
 			};
 		}
+		
+		$('.bx_filter .bx_filter_parameters_box_container input').prop('disabled', false);
 
 		if (!this.isTouch)
 		{
@@ -960,6 +962,8 @@ BX.Iblock.SmartFilter = (function()
 				return false;
 			};
 		}
+		
+		$('.bx_filter .bx_filter_parameters_box_container input').prop('disabled', false);
 
 		if (!this.isTouch)
 		{

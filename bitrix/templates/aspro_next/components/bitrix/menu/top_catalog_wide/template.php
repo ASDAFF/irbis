@@ -15,6 +15,9 @@ $iVisibleItemsMenu = ($arTheme['MAX_VISIBLE_ITEMS_MENU']['VALUE'] ? $arTheme['MA
 						<div class="wrap">
 							<a class="<?=($arItem["CHILD"] && $bShowChilds ? "dropdown-toggle" : "")?>" href="<?=$arItem["LINK"]?>">
 								<div>
+									<?if(isset($arItem["PARAMS"]["CLASS"]) && strpos($arItem["PARAMS"]["CLASS"], "sale_icon") !== false):?>
+										<?=CNext::showIconSvg('sale', SITE_TEMPLATE_PATH.'/images/svg/Sale.svg', '', '');?>
+									<?endif;?>
 									<?=$arItem["TEXT"]?>
 									<div class="line-wrapper"><span class="line"></span></div>
 								</div>

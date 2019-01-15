@@ -6,34 +6,46 @@ use Bitrix\Main\Loader;
 use Bitrix\Main\ModuleManager;
 ?>
 <?if($arResult["ID"]):?>
-	<?if($arParams["USE_REVIEW"] == "Y" && IsModuleInstalled("forum")):?>
-		<div id="reviews_content">
-			<?Bitrix\Main\Page\Frame::getInstance()->startDynamicWithID("area");?>
+	<?if($arParams["USE_REVIEW"] == "Y"):?>
+		<?if($templateData["YM_ELEMENT_ID"]):?>
+			<div id="reviews_content">
 				<?$APPLICATION->IncludeComponent(
-					"bitrix:forum.topic.reviews",
+					"aspro:api.yamarket.reviews_model.next",
 					"main",
 					Array(
-						"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-						"CACHE_TIME" => $arParams["CACHE_TIME"],
-						"MESSAGES_PER_PAGE" => $arParams["MESSAGES_PER_PAGE"],
-						"USE_CAPTCHA" => $arParams["USE_CAPTCHA"],
-						"FORUM_ID" => $arParams["FORUM_ID"],
-						"ELEMENT_ID" => $arResult["ID"],
-						"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-						"AJAX_POST" => $arParams["REVIEW_AJAX_POST"],
-						"SHOW_RATING" => "N",
-						"SHOW_MINIMIZED" => "Y",
-						"SECTION_REVIEW" => "Y",
-						"POST_FIRST_MESSAGE" => "Y",
-						"MINIMIZED_MINIMIZE_TEXT" => GetMessage("HIDE_FORM"),
-						"MINIMIZED_EXPAND_TEXT" => GetMessage("ADD_REVIEW"),
-						"SHOW_AVATAR" => "N",
-						"SHOW_LINK_TO_FORUM" => "N",
-						"PATH_TO_SMILE" => "/bitrix/images/forum/smile/",
-					),	false
+						"YANDEX_MODEL_ID" => $templateData["YM_ELEMENT_ID"]
+					)
 				);?>
-			<?Bitrix\Main\Page\Frame::getInstance()->finishDynamicWithID("area", "");?>
-		</div>
+			</div>
+		<?elseif(IsModuleInstalled("forum")):?>
+			<div id="reviews_content">
+				<?Bitrix\Main\Page\Frame::getInstance()->startDynamicWithID("area");?>
+					<?$APPLICATION->IncludeComponent(
+						"bitrix:forum.topic.reviews",
+						"main",
+						Array(
+							"CACHE_TYPE" => $arParams["CACHE_TYPE"],
+							"CACHE_TIME" => $arParams["CACHE_TIME"],
+							"MESSAGES_PER_PAGE" => $arParams["MESSAGES_PER_PAGE"],
+							"USE_CAPTCHA" => $arParams["USE_CAPTCHA"],
+							"FORUM_ID" => $arParams["FORUM_ID"],
+							"ELEMENT_ID" => $arResult["ID"],
+							"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+							"AJAX_POST" => $arParams["REVIEW_AJAX_POST"],
+							"SHOW_RATING" => "N",
+							"SHOW_MINIMIZED" => "Y",
+							"SECTION_REVIEW" => "Y",
+							"POST_FIRST_MESSAGE" => "Y",
+							"MINIMIZED_MINIMIZE_TEXT" => GetMessage("HIDE_FORM"),
+							"MINIMIZED_EXPAND_TEXT" => GetMessage("ADD_REVIEW"),
+							"SHOW_AVATAR" => "N",
+							"SHOW_LINK_TO_FORUM" => "N",
+							"PATH_TO_SMILE" => "/bitrix/images/forum/smile/",
+						),	false
+					);?>
+				<?Bitrix\Main\Page\Frame::getInstance()->finishDynamicWithID("area", "");?>
+			</div>
+		<?endif;?>
 	<?endif;?>
 	<?if(($arParams["SHOW_ASK_BLOCK"] == "Y") && (intVal($arParams["ASK_FORM_ID"]))):?>
 		<div id="ask_block_content">
@@ -126,9 +138,19 @@ use Bitrix\Main\ModuleManager;
 						var arSearch=parseUrlQuery();
 						$('.tabs_section .stores_tab').html(data);
 						if("oid" in arSearch)
+						{
 							$('.stores_tab .sku_stores_'+arSearch.oid).show();
+						}
 						else
-							$('.stores_tab > div:first').show();
+						{
+							var obSKU = window['<?=$templateData['STR_ID']?>'];
+							if(typeof obSKU == "object")
+							{
+								obSKU.setStoreBlock(obSKU.offers[obSKU.offerNum].ID)
+							}
+							else
+								$('.stores_tab > div:first').show();
+						}
 
 					}
 				});

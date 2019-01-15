@@ -454,7 +454,7 @@ if($arResult["ITEMS"]){?>
 											<div class="bx_filter_select_popup" data-role="dropdownContent" style="display: none;">
 												<ul>
 													<li>
-														<label for="<?="all_".$arCur["CONTROL_ID"]?>" class="bx_filter_param_label" data-role="label_<?="all_".$arCur["CONTROL_ID"]?>" onclick="smartFilter.selectDropDownItem(this, '<?=CUtil::JSEscape("all_".$arCur["CONTROL_ID"])?>')">
+														<label for="<?="all_".$arCur["CONTROL_ID"]?>" class="bx_filter_param_label" data-role="all_label_<?="all_".$arCur["CONTROL_ID"]?>" onclick="smartFilter.selectDropDownItem(this, '<?=CUtil::JSEscape("all_".$arCur["CONTROL_ID"])?>')">
 															<? echo Loc::getMessage("CT_BCSF_FILTER_ALL"); ?>
 														</label>
 													</li>
@@ -529,7 +529,7 @@ if($arResult["ITEMS"]){?>
 											<div class="bx_filter_select_popup" data-role="dropdownContent" style="display: none">
 												<ul>
 													<li style="border-bottom: 1px solid #e5e5e5;padding-bottom: 5px;margin-bottom: 5px;">
-														<label for="<?="all_".$arCur["CONTROL_ID"]?>" class="bx_filter_param_label" data-role="label_<?="all_".$arCur["CONTROL_ID"]?>" onclick="smartFilter.selectDropDownItem(this, '<?=CUtil::JSEscape("all_".$arCur["CONTROL_ID"])?>')">
+														<label for="<?="all_".$arCur["CONTROL_ID"]?>" class="bx_filter_param_label" data-role="all_label_<?="all_".$arCur["CONTROL_ID"]?>" onclick="smartFilter.selectDropDownItem(this, '<?=CUtil::JSEscape("all_".$arCur["CONTROL_ID"])?>')">
 															<? echo Loc::getMessage("CT_BCSF_FILTER_ALL"); ?>
 														</label>
 													</li>

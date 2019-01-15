@@ -199,6 +199,7 @@ JCSmartFilter.prototype.updateItem = function (PID, arItem)
 				{
 					var label = document.querySelector('[data-role="label_'+value.CONTROL_ID+'"]');
 						input = document.querySelector('[id="'+value.CONTROL_ID+'"]');
+						
 					if (value.DISABLED)
 					{
 						if (label){
@@ -859,6 +860,8 @@ BX.Iblock.SmartFilter = (function()
 				return false;
 			};
 		}
+		
+		$('.bx_filter .bx_filter_parameters_box_container input').prop('disabled', false);
 
 		if (!this.isTouch)
 		{
@@ -957,6 +960,8 @@ BX.Iblock.SmartFilter = (function()
 				return false;
 			};
 		}
+		
+		$('.bx_filter .bx_filter_parameters_box_container input').prop('disabled', false);
 
 		if (!this.isTouch)
 		{

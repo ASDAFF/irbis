@@ -1,7 +1,23 @@
 <?if('Y' == $arParams['USE_FILTER']):?>
+	<?
+	if($arTheme["FILTER_VIEW"]["VALUE"] == 'COMPACT'){
+		if($arParams["AJAX_FILTER_CATALOG"]=="Y"){
+			$template = 'main_compact_ajax';
+		}
+		else{
+			$template = 'main_compact';
+		}
+	}
+	elseif($arParams["AJAX_FILTER_CATALOG"]=="Y"){
+		$template = 'main_ajax';
+	}
+	else{
+		$template = 'main';
+	}
+	?>
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:catalog.smart.filter",
-		($arParams["AJAX_FILTER_CATALOG"]=="Y" ? "main_ajax" : "main"),
+		$template,
 		Array(
 			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 			"IBLOCK_ID" => $arParams["IBLOCK_ID"],

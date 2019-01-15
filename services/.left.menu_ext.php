@@ -13,7 +13,7 @@ if($arMenuParametrs = CNext::GetDirMenuParametrs(__DIR__))
 	{
 		/*filter by region*/
 		global $arRegion;
-		$arFilterItem = array('IBLOCK_ID' => CNextCache::$arIBlocks[SITE_ID]['aspro_next_content']['aspro_next_services'][0], 'ACTIVE' => 'Y', 'SECTION_GLOBAL_ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y', 'INCLUDE_SUBSECTIONS' => 'Y');
+		$arFilterItem = array('IBLOCK_ID' => CNextCache::$arIBlocks[SITE_ID]['aspro_next_content']['aspro_next_services'][0], 'ACTIVE' => 'Y', 'ACTIVE_DATE' => 'Y', 'INCLUDE_SUBSECTIONS' => 'Y');
 		$arSelect = array('ID', 'NAME', 'IBLOCK_ID', 'IBLOCK_SECTION_ID', 'DEPTH_LEVEL', 'ACTIVE', 'SORT', 'DETAIL_PAGE_URL');
 
 		$arItems = CNextCache::CIBlockElement_GetList(array('SORT' => 'ASC', 'ID' => 'DESC', 'CACHE' => array('TAG' => CNextCache::GetIBlockCacheTag(CNextCache::$arIBlocks[SITE_ID]['aspro_next_content']['aspro_next_services'][0]), 'MULTI' => 'Y')), $arFilterItem, false, false, $arSelect);
@@ -27,8 +27,8 @@ if($arMenuParametrs = CNext::GetDirMenuParametrs(__DIR__))
 			unset($arFilterItem['INCLUDE_SUBSECTIONS']);
 			$arFilterItem['SECTION_ID'] = 0;
 
-			$arItemsRoot = CNextCache::CIBlockElement_GetList(array('SORT' => 'ASC', 'ID' => 'DESC', 'CACHE' => array('TAG' => CNextCache::GetIBlockCacheTag(CNextCache::$arIBlocks[SITE_ID]['aspro_next_content']['aspro_next_services'][0]), 'MULTI' => 'Y')), $arFilterItem, false, false, $arSelect);
-			$arItems = array_merge((array)$arItems, (array)$arItemsRoot);
+			/*$arItemsRoot = CNextCache::CIBlockElement_GetList(array('SORT' => 'ASC', 'ID' => 'DESC', 'CACHE' => array('TAG' => CNextCache::GetIBlockCacheTag(CNextCache::$arIBlocks[SITE_ID]['aspro_next_content']['aspro_next_services'][0]), 'MULTI' => 'Y')), $arFilterItem, false, false, $arSelect);
+			$arItems = array_merge((array)$arItems, (array)$arItemsRoot);*/
 		}
 		if($arItems)
 		{

@@ -11,28 +11,37 @@ errorData['companyName'] = 'Не выбрано поле "Название ор�
 $(document).ready(function () {
 
     $('.reg_btn').click(function () {
-        var parentForm = $(this).closest('#reg_form');
-        var data = [];
-        data['login'] = parentForm.find('#InputLogin').val();
-        data['lastName'] = parentForm.find('#InputLastName').val();
-        data['name'] = parentForm.find('#Inputname').val();
-        data['secondName'] = parentForm.find('#InputSecondName').val();
-        data['email'] = parentForm.find('#InputEmail').val();
-        parentForm.find('input[type=radio]').each(function () {
+        var templateFolder = $(this).attr("templateFolder");
+        var file_data = $('#formControlFile').prop('files')[0];
+        var form_data = new FormData();
+        form_data.append('login',$('#InputLogin').val());
+        form_data.append('lastName',$('#InputLastName').val());
+        form_data.append('name',$('#InputName').val());
+        form_data.append('secondName',$('#InputSecondName').val());
+        form_data.append('email',$('#InputEmail').val());
+        $('input[type=radio]').each(function () {
             if ($(this).is(':checked')) {
-                data['worked_with_us'] = $(this).siblings('label').html();
+                form_data.append('comment',$(this).siblings('label').html());
             }
         });
-        data['comment'] = parentForm.find('#InputComment').val();
-        data['companyName'] = parentForm.find('#InputCompanyName').val();
-        console.log(data);
-        $.each(data, function ( key, value ) {
-            if (value == '') {
-                var errMsg = '<div class="row"><div class="col">errorData[key]</div></div>';
-            }
-            console.log(errMsg);
-        });
-        // $('.ErrMsg').html(errMsg);
+        form_data.append('worked_with_us',$('#InputComment').val());
+        form_data.append('companyName',$('#InputCompanyName').val());
+        form_data.append('file', file_data);
+        $.ajax({
+            url: templateFolder + "/register.php",
+            dataType: 'html',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: form_data,
+            type: 'post',
+            success: function (rezult) {
+                if (rezult != '') {
+                    $('.ErrMsg').css('background-color','red');
+                    $('.ErrMsg').html(rezult);
+                }
 
+            }
+        });
     });
 });

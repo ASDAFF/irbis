@@ -832,7 +832,8 @@ body .fa.big-icon.grey {
 footer .info .email a:hover {
   color: #de002b;
 }
-.logo.colored svg .icon-path {
+.logo.colored svg .icon-path,
+.svg.colored path {
   fill: #de002b;
 }
 .product-item-detail-tabs-container-fixed .product-item-detail-tabs-list li a:before {
@@ -945,8 +946,8 @@ header .wrap_menu {
 .light .stores .all_map:hover {
   background: #d02c47;
 }
-.like_icons .compare_item.added:hover i,
-.like_icons .wish_item.added:hover i {
+html:not(.bx-touch) .like_icons .compare_item.added:hover i,
+html:not(.bx-touch) .like_icons .wish_item.added:hover i {
   background-color: #d02c47;
 }
 .wrapper_middle_menu.wrap_menu.mobile:hover {
@@ -1097,24 +1098,29 @@ body .mega-menu table td .wrap > .dropdown-menu > li:first-of-type:before {
 .catalog_detail .title-tab-heading:hover {
   color: #de002b;
 }
-.style-switcher .switch:hover {
+.style-switcher .switch:hover,
+.style-switcher .switch_presets:hover {
   background: #de002b;
-}
-.style-switcher .header .header-inner {
-  background-color: #de002b;
-  border-color: #de002b;
 }
 .style-switcher .header .header-inner:hover,
 .style-switcher .header .header-inner:active,
 .style-switcher .header .header-inner:focus {
-  background-color: #fd0031;
-  border-color: #fd0031;
+  background-color: #de002b;
+  border-color: #de002b;
 }
 .style-switcher .header .save_btn:hover {
   background: #de002b;
 }
+.style-switcher .options .link-item.preset-block:hover .info .icon,
+.style-switcher .options .link-item.preset-block.current .info .icon {
+  border-color: #de002b;
+  background: #de002b;
+}
+.style-switcher .options .preset-block.current {
+  border-color: #de002b;
+}
 .style-switcher .options > span.current:not(.block),
-.style-switcher .options .link-item.current:not(.block) {
+.style-switcher .options .link-item.current:not(.block):not(.preset-block) {
   background: #de002b;
 }
 .style-switcher .options .link-item.current.block {
@@ -1264,6 +1270,16 @@ header .menu_top_block.catalogfirst li.full>.dropdown>li:not(.current)>a {
 .sku_props .bx_item_detail_size ul li:hover,
 .bx_item_list_you_looked_horizontal .bx_item_detail_size ul li:hover {
   border-color: #c50026;
+}
+.bx_filter.compact .bx_filter_parameters_box.set .bx_filter_parameters_box_title:not(.prices) {
+  border: 1px solid #de002b;
+  color: #de002b;
+}
+.bx_filter.compact .bx_filter_parameters_box .bx_filter_parameters_box_title .delete_filter svg path {
+  fill: #de002b;
+}
+.menu-row.middle-block.bglight .mega-menu table td.icon.sale_icon .wrap > a .svg path {
+  fill: #de002b;
 }
 .more_text_ajax:after {
   background-color: #d40029;
