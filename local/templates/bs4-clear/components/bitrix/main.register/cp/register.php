@@ -46,15 +46,23 @@ $filesTypes = ["DOCM", "docx", "dot", "dotm", "dotx", "PDF", "pdf", "RTF", "XML"
 
 if (!in_array(getFileTypeFromAjax($_FILES["file"]["name"]), $filesTypes)) {
     $errText .= "<div class=\"row\"><div class=\"col no-padding errText\">Был загружен файл неверного разрешения</div></div>";
-} else {
-    $fileName = generateID() . '.' . getFileTypeFromAjax($_FILES["file"]["name"]);
-    $filePath = '/upload/company_card/' . $fileName;
-    move_uploaded_file($_FILES['file']['tmp_name'], $filePath);
 }
 
 if ($errText != '') {
     echo $errText;
 } else {
+    $file = [
+        "name" => generateID() . '.' . getFileTypeFromAjax($_FILES["file"]["name"]),
+        "size" => $_FILES["file"]["size"],
+        "tmp_name" => $_FILES["file"]["tmp_name"],
+        "type" => $_FILES["file"]["tmp_name"],
+        "del" => "Y",
+        "MODULE_ID" => "main",
+        "description" => "Карточка организации для пользователя с ником ".$_POST["login"],
+    ];
+    $fid = CFile::SaveFile($file, "company_card");
+    var_dump($fid);
+
     $pass = generate_password(8);
     $userId = $user->Add(array(
         "LOGIN" => $_POST["login"],
@@ -68,7 +76,7 @@ if ($errText != '') {
         "UF_WORKED_WITH" => $_POST["worked_with_us"],
         "UF_PARTNERSHIP_GOAL" => $_POST["comment"],
         "UF_COMPANY_NAME" => $_POST["companyName"],
-        "UF_COMPANY_CARD" => $filePath,
+        "UF_COMPANY_CARD" => $fid,
     ));
 }
 

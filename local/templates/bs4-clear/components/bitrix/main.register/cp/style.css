@@ -17,6 +17,9 @@
     text-align: center;
     text-transform: uppercase;
 }
+.ErrRow {
+    margin: 0;
+}
 .errText {
     font-size: 14px;
     line-height: 1;
