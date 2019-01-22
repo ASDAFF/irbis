@@ -66,27 +66,26 @@
             </div>
         </div>
     <? endif ?>
-    <!--
-    <div class="row">
-        <div class="col pt-2">
-            <input type="checkbox" id="USER_REMEMBER_frm" name="USER_REMEMBER" value="Y" tabindex="5"/>
-            <label for="USER_REMEMBER_frm" title="<?= GetMessage("AUTH_REMEMBER_ME") ?>"
-                   tabindex="5"><? echo GetMessage("AUTH_REMEMBER_SHORT") ?></label>
-        </div>
-    </div>
-    -->
+
+<!--    <div class="row">-->
+<!--        <div class="col pt-2">-->
+<!--            <input type="checkbox" id="USER_REMEMBER_frm" name="USER_REMEMBER" value="Y" tabindex="5"/>-->
+<!--            <label for="USER_REMEMBER_frm" title="--><?//= GetMessage("AUTH_REMEMBER_ME") ?><!--"-->
+<!--                   tabindex="5">--><?// echo GetMessage("AUTH_REMEMBER_SHORT") ?><!--</label>-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="row justify-content-center">
         <div class="col-8 pt-4">
             <button type="submit" class="btn auth_btn" name="Login" value=""
                     tabindex="4"><?= GetMessage("AUTH_LOGIN_BUTTON") ?></button>
         </div>
     </div>
-    <div class="row">
-        <div class="col text-center pt-4">
-            <a class="forgot pull-right" href="<?= $arResult["AUTH_FORGOT_PASSWORD_URL"]; ?>"
-               tabindex="3"><?= GetMessage("AUTH_FORGOT_PASSWORD_2") ?></a>
-        </div>
-    </div>
+<!--    <div class="row">-->
+<!--        <div class="col text-center pt-4">-->
+<!--            <a class="forgot pull-right" href="--><?//= $arResult["AUTH_FORGOT_PASSWORD_URL"]; ?><!--"-->
+<!--               tabindex="3">--><?//= GetMessage("AUTH_FORGOT_PASSWORD_2") ?><!--</a>-->
+<!--        </div>-->
+<!--    </div>-->
     <div class="row">
         <div class="col text-center pt-2">
 
@@ -94,5 +93,3 @@
     </div>
 </form>
 
-<!--    <div class="col-6 authCopy_text text-center">© Все права защищены ООО "Ирбис ТД" 2005---><?//=date("Y")?><!--</div>-->
-<!--    <div class="col-6 authCopy_text text-center">Политика конфиденциальности и файлы cookie</div>-->
