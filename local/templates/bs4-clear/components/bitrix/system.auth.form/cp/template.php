@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 text-left pt-1">Войдите, чтобы получить доступ к партнерскому порталу</div>
+        <div class="col-12 text-left pt-1">Если Вы уже наш партнер, авторизуйтесь чтобы продолжить</div>
     </div>
     <div class="row" data-sid="USER_LOGIN_POPUP">
         <div class="col-md-12 authInputBlock pt-4 text-left">
