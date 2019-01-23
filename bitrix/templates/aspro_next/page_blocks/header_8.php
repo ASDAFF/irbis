@@ -70,8 +70,18 @@ $logoClass = ($arTheme['COLORED_LOGO']['VALUE'] !== 'Y' ? '' : ' colored');
 							<?endif?>
 							<?if($arTheme['SHOW_CALLBACK']['VALUE'] == 'Y'):?>
 								<div class="inner-table-block">
-									<span class="callback-block animate-load twosmallfont colored  white btn-default btn" data-event="jqm" data-param-form_id="CALLBACK" data-name="callback"><?=GetMessage("CALLBACK")?></span>
+                                    <script id="bx24_form_button" data-skip-moving="true">
+                                        (function(w,d,u,b){w['Bitrix24FormObject']=b;w[b] = w[b] || function(){arguments[0].ref=u;
+                                                (w[b].forms=w[b].forms||[]).push(arguments[0])};
+                                            if(w[b]['forms']) return;
+                                            var s=d.createElement('script');s.async=1;s.src=u+'?'+(1*new Date());
+                                            var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
+                                        })(window,document,'https://b24.irbis-td.ru/bitrix/js/crm/form_loader.js','b24form');
+
+                                        b24form({"id":"3","lang":"ru","sec":"2cizv2","type":"button","click":""});
+                                    </script><span class="foto_search twosmallfont colored  white btn-default btn b24-web-form-popup-btn-3"><i class="fas fa-camera"></i>Поиск по фото</span>
 								</div>
+
 							<?endif;?>
 						</div>
 					</div>
