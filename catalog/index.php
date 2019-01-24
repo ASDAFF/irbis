@@ -43,7 +43,7 @@ $APPLICATION->IncludeComponent(
 			7 => "",
 		),
 		"FILTER_PRICE_CODE" => array(
-			0 => "BASE",
+			0 => "B2C",
 		),
 		"FILTER_OFFERS_FIELD_CODE" => array(
 			0 => "NAME",
@@ -102,7 +102,7 @@ $APPLICATION->IncludeComponent(
 		"COMPARE_ELEMENT_SORT_ORDER" => "asc",
 		"DISPLAY_ELEMENT_SELECT_BOX" => "N",
 		"PRICE_CODE" => array(
-			0 => "BASE",
+			0 => "B2C",
 		),
 		"USE_PRICE_COUNT" => "Y",
 		"SHOW_PRICE_COUNT" => "1",
@@ -485,7 +485,7 @@ $APPLICATION->IncludeComponent(
 		"SECTION_ELEMENTS_TYPE_VIEW" => "list_elements_1",
 		"ELEMENT_TYPE_VIEW" => "FROM_MODULE",
 		"SHOW_ARTICLE_SKU" => "Y",
-		"SORT_REGION_PRICE" => "BASE",
+		"SORT_REGION_PRICE" => "B2C",
 		"BIGDATA_NORMAL" => "bigdata_1",
 		"BIGDATA_EXT" => "bigdata_2",
 		"SHOW_MEASURE_WITH_RATIO" => "N",
