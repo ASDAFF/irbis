@@ -5,7 +5,8 @@ IncludeTemplateLangFile(__FILE__);
 global $APPLICATION, $arRegion, $arSite, $arTheme;
 $arSite = CSite::GetByID(SITE_ID)->Fetch();
 $htmlClass = ($_REQUEST && isset($_REQUEST['print']) ? 'print' : false);
-$bIncludedModule = (\Bitrix\Main\Loader::includeModule("aspro.next"));?>
+$bIncludedModule = (\Bitrix\Main\Loader::includeModule("aspro.next"));
+$APPLICATION->SetAdditionalCss(SITE_TEMPLATE_PATH."/css/custom-".SITE_ID.".css",true);?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>" <?=($htmlClass ? 'class="'.$htmlClass.'"' : '')?>>
 <head>
