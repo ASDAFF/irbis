@@ -8,7 +8,7 @@ $current_link  = $APPLICATION->GetCurPage();
 $auth_link = '/auth/';
 $execute_url = array(
     '/auth/change-password/',
-    '/auth/forgot_passwd',
+    '/auth/forgot_passwd/',
 );
 if(in_array(SITE_ID, $closeSites) && $current_link != $auth_link && !in_array($current_link,$execute_url) && !CUser::IsAuthorized()) {
     ob_start();
