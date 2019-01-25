@@ -6,8 +6,11 @@
 $closeSites = array ('s2');
 $current_link  = $APPLICATION->GetCurPage();
 $auth_link = '/auth/';
-$change_password_link = '/auth/change-password/';
-if(in_array(SITE_ID, $closeSites) && $current_link != $auth_link && $current_link != $change_password_link && !CUser::IsAuthorized()) {
+$execute_url = array(
+    '/auth/change-password/',
+    '/auth/forgot_passwd',
+);
+if(in_array(SITE_ID, $closeSites) && $current_link != $auth_link && !in_array($current_link,$execute_url) && !CUser::IsAuthorized()) {
     ob_start();
     $new_url = $auth_link;
     header('Location: '.$new_url);
