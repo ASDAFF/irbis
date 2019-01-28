@@ -18,7 +18,7 @@ if(in_array(SITE_ID, $closeSites) && $current_link != $auth_link && !in_array($c
     ob_end_flush();
     die();
 }
-if($USER->IsAdmin() && SITE_ID == 's1' && $USER->IsAuthorized()) {
+if(!$USER->IsAdmin() && SITE_ID == 's1' && $USER->IsAuthorized()) {
     header('Location: http://b2b.td-irbis.ru'.$APPLICATION->GetCurPage());
 }
 
