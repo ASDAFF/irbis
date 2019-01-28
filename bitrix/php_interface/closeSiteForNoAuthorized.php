@@ -18,12 +18,6 @@ if(in_array(SITE_ID, $closeSites) && $current_link != $auth_link && !in_array($c
     ob_end_flush();
     die();
 }
-if(!$USER->IsAdmin() && SITE_ID == 's1' && $USER->IsAuthorized()) {
+if(!$USER->IsAdmin() && SITE_ID == 's1' && CUser::IsAuthorized()) {
     header('Location: http://b2b.td-irbis.ru'.$APPLICATION->GetCurPage());
 }
-
-
-/*
-
- http://b2b.td-irbis.ru/auth/change-password/index.php?change_password=yes&lang=ru&USER_CHECKWORD=17c0d7a59c494ba9b198f4cef1335008&USER_LOGIN=zaytsev.max90%40gmail.com
- */
