@@ -127,6 +127,13 @@
 
 					<td class="description_wrapp">
 						<div class="description">
+                            <?
+                            $BRAND_IBLOCK_ID = $arItem["PROPERTIES"]['BRAND']["LINK_IBLOCK_ID"];
+                            $BRAND_ID = $arItem["PROPERTIES"]['BRAND']["VALUE"];
+                            $BRAND = GetIBlockElement( $BRAND_ID, "aspro_next_content" );
+                            $BRAND_IMG = CFile::GetPath($BRAND["PREVIEW_PICTURE"]);
+                            ?>
+                            <img class="BRAND_IMG" src="<?=$BRAND_IMG?>">
 							<div class="item-title">
 								<a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="dark_link"><span><?=$elementName;?></span></a>
 							</div>
@@ -224,13 +231,7 @@
 					</td>
 					<td class="information_wrapp main_item_wrapper">
 						<div class="information <?=($arItem["OFFERS"] && $arItem['OFFERS_PROP'] ? 'has_offer_prop' : '');?>  inner_content js_offers__<?=$arItem['ID'];?>">
-                            <?
-                            $BRAND_IBLOCK_ID = $arItem["PROPERTIES"]['BRAND']["LINK_IBLOCK_ID"];
-                            $BRAND_ID = $arItem["PROPERTIES"]['BRAND']["VALUE"];
-                            $BRAND = GetIBlockElement( $BRAND_ID, "aspro_next_content" );
-                            $BRAND_IMG = CFile::GetPath($BRAND["PREVIEW_PICTURE"]);
-                            ?>
-                            <img class="BRAND_IMG" src="<?=$BRAND_IMG?>">
+
 							<div class="cost prices clearfix">
 								<?if( count( $arItem["OFFERS"] ) > 0 ){?>
 									<div class="with_matrix" style="display:none;">
