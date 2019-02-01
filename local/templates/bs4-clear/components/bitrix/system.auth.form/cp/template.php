@@ -103,12 +103,12 @@ while ($ob = $res->GetNext()) {
                         tabindex="4"><?= $resultArray['btn_text'] ?></button>
             </div>
         </div>
-        <!--    <div class="row">-->
-        <!--        <div class="col text-center pt-4">-->
-        <!--            <a class="forgot pull-right" href="--><? //= $arResult["AUTH_FORGOT_PASSWORD_URL"]; ?><!--"-->
-        <!--               tabindex="3">--><? //= GetMessage("AUTH_FORGOT_PASSWORD_2") ?><!--</a>-->
-        <!--        </div>-->
-        <!--    </div>-->
+            <div class="row">
+                <div class="col text-center pt-4">
+                    <a class="forgot pull-right" href="<?= $resultArray["forgot_link"]; ?>"
+                       tabindex="3"><?= $resultArray["forgot_text"] ?></a>
+                </div>
+            </div>
         <div class="row">
             <div class="col text-center pt-2">
 

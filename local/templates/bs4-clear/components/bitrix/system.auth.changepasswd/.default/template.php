@@ -14,7 +14,7 @@
             </div>
             <div class="col-10 text-right">
                 <a class="forgot pull-right" target="_blank"
-                   href="https://b24.irbis-td.ru/pub/form/2_registratsiya_na_korporativnom_portale/djbhhw/"><?= GetMessage("AUTH_REGISTER") ?></a>
+                   href="https://b24.irbis-td.ru/pub/form/2_registratsiya_na_korporativnom_portale/djbhhw/">Стать партнером</a>
             </div>
         </div>
         <div class="row">
