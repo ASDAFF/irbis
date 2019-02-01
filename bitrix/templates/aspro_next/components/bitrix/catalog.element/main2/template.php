@@ -814,7 +814,7 @@ setViewedProduct(<?=$arResult['ID']?>, <?=CUtil::PhpToJSObject($arViewedData, fa
 	$showProps = false;
 	if($arResult["DISPLAY_PROPERTIES"]){
 		foreach($arResult["DISPLAY_PROPERTIES"] as $arProp){
-			if(!in_array($arProp["CODE"], array("SERVICES", "BRAND", "HIT", "RECOMMEND", "NEW", "STOCK", "VIDEO", "VIDEO_YOUTUBE", "CML2_ARTICLE"))){
+			if(!in_array($arProp["CODE"], array("SERVICES", "HIT", "RECOMMEND", "NEW", "STOCK", "VIDEO", "VIDEO_YOUTUBE", "CML2_ARTICLE"))){
 				if(!is_array($arProp["DISPLAY_VALUE"])){
 					$arProp["DISPLAY_VALUE"] = array($arProp["DISPLAY_VALUE"]);
 				}
@@ -1241,9 +1241,10 @@ setViewedProduct(<?=$arResult['ID']?>, <?=CUtil::PhpToJSObject($arViewedData, fa
 								</div>
 							<?else:?>
 								<div class="char_block">
+                                    <table class="props_list" id="<? echo $arItemIDs["ALL_ITEM_IDS"]['DISPLAY_PROP_DIV']; ?>"></table>
 									<table class="props_list">
 										<?foreach($arResult["DISPLAY_PROPERTIES"] as $arProp):?>
-											<?if(!in_array($arProp["CODE"], array("SERVICES", "BRAND", "HIT", "RECOMMEND", "NEW", "STOCK", "VIDEO", "VIDEO_YOUTUBE", "CML2_ARTICLE"))):?>
+											<?if(!in_array($arProp["CODE"], array("SERVICES", "HIT", "RECOMMEND", "NEW", "STOCK", "VIDEO", "VIDEO_YOUTUBE", "CML2_ARTICLE"))):?>
 												<?if((!is_array($arProp["DISPLAY_VALUE"]) && strlen($arProp["DISPLAY_VALUE"])) || (is_array($arProp["DISPLAY_VALUE"]) && implode('', $arProp["DISPLAY_VALUE"]))):?>
 													<tr itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
 														<td class="char_name">
@@ -1266,7 +1267,6 @@ setViewedProduct(<?=$arResult['ID']?>, <?=CUtil::PhpToJSObject($arViewedData, fa
 											<?endif;?>
 										<?endforeach;?>
 									</table>
-									<table class="props_list" id="<? echo $arItemIDs["ALL_ITEM_IDS"]['DISPLAY_PROP_DIV']; ?>"></table>
 								</div>
 							<?endif;?>
 						<?endif;?>
@@ -1470,7 +1470,7 @@ setViewedProduct(<?=$arResult['ID']?>, <?=CUtil::PhpToJSObject($arViewedData, fa
 				"PAGER_TEMPLATE" => ".default",
 				"DISPLAY_TOP_PAGER" => "N",
 				"DISPLAY_BOTTOM_PAGER" => "Y",
-				"PAGER_TITLE" => "Новости",
+				"PAGER_TITLE" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 				"PAGER_SHOW_ALWAYS" => "N",
 				"PAGER_DESC_NUMBERING" => "N",
 				"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",

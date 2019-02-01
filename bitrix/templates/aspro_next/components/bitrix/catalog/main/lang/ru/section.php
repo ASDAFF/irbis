@@ -1,4 +1,5 @@
 <?
+    $MESS["SECT_SORT_SORT"] = "По умолчанию";
 	$MESS["SECT_SORT_SHOWS"] = "По популярности";
 	$MESS["SECT_SORT_NAME"] = "По алфавиту";
 	$MESS["SECT_SORT_PRICE"] = "По цене";

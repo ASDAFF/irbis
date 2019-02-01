@@ -16,3 +16,66 @@
 .logo-row .logo svg {
     width: auto;
 }
+.logo-row .logo {
+    width: 80%;
+}
+
+.BRAND_IMG {
+    height: 30px;
+}
+
+/*исправление бордюра у цветов*/
+.bx_catalog_item_scu .bx_item_detail_scu ul li .cnt_item, .bx_filter .bx_filter_btn_color_icon, .bx_filter_select_popup .bx_filter_btn_color_icon, .bx_scu_scroller_container ul li .cnt_item {
+    box-shadow: none !important;
+}
+span.cnt_item {
+    border: 3px solid #ffffff !important;
+    border-radius: 50px !important;
+}
+li.active span.cnt_item,
+label.bx_filter_param_label.nab.dib.active span.bx_filter_btn_color_icon {
+    border: 2px solid #be052a !important;
+    border-radius: 50px !important;
+}
+
+/*смена цвета иконки при активности */
+li.full.current.opened.m_line.v_hover span.image {
+    filter: brightness(0%) invert(100%);
+    -webkit-filter: brightness(0%) invert(100%);
+}
+
+.catalog_section_list .section_item li.name a span {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 2;
+}
+.menu-row .mega-menu table td.wide_menu>.wrap>.dropdown-menu>li {
+    width: 50%;
+}
+.menu-row .mega-menu table td.wide_menu:hover>.wrap>.dropdown-menu {
+    max-height: 550px;
+}
+li.has_img span.name {
+    font-size: 20px;
+    line-height: 3;
+}
+.logo_and_menu-row .search .btn-search {
+    padding: 9px;
+}
+button.btn.btn-search {
+    padding: 7px 7px 8px 7px;
+}
+.price_group.B2C span.values_wrapper {
+    font-size: 12px !important;
+}
+span.price_measure {
+    display: none !important;
+}
+.info_item .top_info .article {
+    margin-top: -22px;
+}
+.info_item .top_info .article .value {
+    width: 100%;
+    display: block;
+    position: absolute;
+}

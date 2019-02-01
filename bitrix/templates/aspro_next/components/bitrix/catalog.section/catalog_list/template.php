@@ -1,5 +1,9 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?$this->setFrameMode(true);?>
+<?
+//$arParams["TYPE_SKU"] = "TYPE_2";
+//$arParams["~TYPE_SKU"] = "TYPE_2";
+?>
 <?if( count( $arResult["ITEMS"] ) >= 1 ){?>
 	<?if($arParams["AJAX_REQUEST"]=="N"){?>
 		<div class="display_list <?=($arParams["SHOW_UNABLE_SKU_PROPS"] != "N" ? "show_un_props" : "unshow_un_props");?>">
@@ -220,6 +224,13 @@
 					</td>
 					<td class="information_wrapp main_item_wrapper">
 						<div class="information <?=($arItem["OFFERS"] && $arItem['OFFERS_PROP'] ? 'has_offer_prop' : '');?>  inner_content js_offers__<?=$arItem['ID'];?>">
+                            <?
+                            $BRAND_IBLOCK_ID = $arItem["PROPERTIES"]['BRAND']["LINK_IBLOCK_ID"];
+                            $BRAND_ID = $arItem["PROPERTIES"]['BRAND']["VALUE"];
+                            $BRAND = GetIBlockElement( $BRAND_ID, "aspro_next_content" );
+                            $BRAND_IMG = CFile::GetPath($BRAND["PREVIEW_PICTURE"]);
+                            ?>
+                            <img class="BRAND_IMG" src="<?=$BRAND_IMG?>">
 							<div class="cost prices clearfix">
 								<?if( count( $arItem["OFFERS"] ) > 0 ){?>
 									<div class="with_matrix" style="display:none;">
@@ -294,6 +305,7 @@
 									<?}?>
 								<?}?>
 							</div>
+                            <? if(false): ?>
 							<?if($arParams["SHOW_DISCOUNT_TIME"]=="Y" && $arParams['SHOW_COUNTER_LIST'] != 'N'){?>
 								<?$arUserGroups = $USER->GetUserGroupArray();?>
 								<?if($arParams['SHOW_DISCOUNT_TIME_EACH_SKU'] != 'Y' || ($arParams['SHOW_DISCOUNT_TIME_EACH_SKU'] == 'Y' && !$arItem['OFFERS'])):?>
@@ -485,6 +497,8 @@
 									<?}?>
 								<?}?>
 							<?endif;?>
+
+                            <? endif; ?>
 						</div>
 					</td></tr>
 				</table>

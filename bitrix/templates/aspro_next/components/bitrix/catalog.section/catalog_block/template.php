@@ -1,5 +1,9 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?$this->setFrameMode(true);?>
+<?
+//$arParams["TYPE_SKU"] = "TYPE_2";
+//$arParams["~TYPE_SKU"] = "TYPE_2";
+?>
 <?if( count( $arResult["ITEMS"] ) >= 1 ){?>
 	<?if(($arParams["AJAX_REQUEST"]=="N") || !isset($arParams["AJAX_REQUEST"])){?>
 		<?if(isset($arParams["TITLE"]) && $arParams["TITLE"]):?>
@@ -207,6 +211,14 @@
 								</a>
 								<div class="fast_view_block" data-event="jqm" data-param-form_id="fast_view" data-param-iblock_id="<?=$arParams["IBLOCK_ID"];?>" data-param-id="<?=$arItem["ID"];?>" data-param-item_href="<?=urlencode($arItem["DETAIL_PAGE_URL"]);?>" data-name="fast_view"><?=$fast_view_text;?></div>
 							</div>
+
+                            <?
+                            $BRAND_IBLOCK_ID = $arItem["PROPERTIES"]['BRAND']["LINK_IBLOCK_ID"];
+                            $BRAND_ID = $arItem["PROPERTIES"]['BRAND']["VALUE"];
+                            $BRAND = GetIBlockElement( $BRAND_ID, "aspro_next_content" );
+                            $BRAND_IMG = CFile::GetPath($BRAND["PREVIEW_PICTURE"]);
+                            ?>
+                            <img class="BRAND_IMG" src="<?=$BRAND_IMG?>">
 							<div class="item_info <?=$arParams["TYPE_SKU"]?>">
 								<div class="item-title">
 									<a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="dark_link"><span><?=$elementName;?></span></a>
@@ -366,6 +378,7 @@
 									<?endif;?>
 								<?}?>
 							</div>
+                            <? if(false): ?>
 							<div class="footer_button <?=($arItem["OFFERS"] && $arItem['OFFERS_PROP'] ? 'has_offer_prop' : '');?> inner_content js_offers__<?=$arItem['ID'];?>">
 								<div class="sku_props">
 									<?if($arItem["OFFERS"]){?>
@@ -464,6 +477,7 @@
 									<?}?>
 								<?endif;?>
 							</div>
+                            <? endif; ?>
 						</div>
 					</div>
 				</div>

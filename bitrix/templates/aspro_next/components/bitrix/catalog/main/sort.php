@@ -26,6 +26,7 @@ $template = "catalog_".$display;
 			<?	
 			$arAvailableSort = array();
 			$arSorts = $arParams["SORT_BUTTONS"];
+            $arAvailableSort["SORT"] = array("SORT", "desc");
 			if(in_array("POPULARITY", $arSorts)){
 				$arAvailableSort["SHOWS"] = array("SHOWS", "desc");
 			}

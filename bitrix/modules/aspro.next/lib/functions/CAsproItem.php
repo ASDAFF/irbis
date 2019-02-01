@@ -74,7 +74,7 @@ if(!class_exists("CAsproItem"))
 						<?endif;?>
 						<div class="price_matrix_wrapper <?=($arDiscountPrices ? (isset($arDiscountPrices[$arPriceGroup['ID']]) ? 'strike_block' : '') : '');?>">
 							<?if($arPrice["VALUE"] > $arPrice["DISCOUNT_VALUE"]){?>
-								<div class="price"  data-currency="<?=$arPrice["CURRENCY"];?>" data-value="<?=$arPrice["DISCOUNT_VALUE"];?>" <?=($bMinPrice ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '')?>>
+								<div class="price price_<?=$arPrice["PRICE_ID"]?>"  data-currency="<?=$arPrice["CURRENCY"];?>" data-value="<?=$arPrice["DISCOUNT_VALUE"];?>" <?=($bMinPrice ? ' itemprop="offers" itemscope itemtype="http://schema.org/Offer"' : '')?>>
 									<?if($bMinPrice):?>
 										<meta itemprop="price" content="<?=($arPrice['DISCOUNT_VALUE'] ? $arPrice['DISCOUNT_VALUE'] : $arPrice['VALUE'])?>" />
 										<meta itemprop="priceCurrency" content="<?=$arPrice['CURRENCY']?>" />

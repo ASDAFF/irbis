@@ -1,5 +1,9 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?$this->setFrameMode(true);?>
+<?
+//$arParams["TYPE_SKU"] = "TYPE_2";
+//$arParams["~TYPE_SKU"] = "TYPE_2";
+?>
 <?if( count( $arResult["ITEMS"] ) >= 1 ){?>
 	<?$arParams["BASKET_ITEMS"]=($arParams["BASKET_ITEMS"] ? $arParams["BASKET_ITEMS"] : array());?>
 	<?if($arParams["AJAX_REQUEST"]=="N"){?>
