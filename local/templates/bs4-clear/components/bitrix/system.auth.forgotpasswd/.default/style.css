@@ -1,0 +1,139 @@
+html, body {
+    height: 100%;
+}
+body {
+    overflow: hidden;
+}
+:active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
+}
+#pagetitle {
+    display: none;
+}
+.auth_bg {
+    display: flex!important;
+    align-items: center;
+    background-image: url("/images/auth/auth_bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: fixed;
+    height: 100%;
+}
+.form_signin {
+    width: 100%;
+    max-width: 370px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: .25em;
+    box-shadow: 0 0 30px rgba(0,0,0,0.7);
+}
+.authBack a{
+    cursor: pointer!important;
+}
+.authBack i{
+    font-size: 20px;
+    color: #212529;
+}
+.auth_logo img {
+    width: 40%;
+}
+.authInputBlock label {
+    font-size: 12px;
+    color: #ced4da;
+}
+.input i {
+    position: absolute;
+    bottom: 10px;
+    right: 25px;
+    cursor: pointer;
+}
+.authCopy {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+}
+.authCopy_text {
+    font-size: 16px;
+    color: #ffffff;
+    display: inline-block;
+    text-shadow: 0 0 10px rgba(0,0,0,0.9);
+}
+.authCopy_text a{
+    color: #ffffff;
+}
+
+#myTab li.nav-item {
+    width: 50%;
+}
+.nav-tabs .nav-link {
+    color: #555!important;
+}
+.nav-tabs .nav-link.active {
+    color: #de052a!important;
+    font-weight: 600;
+}
+.authHeaderLogo {
+    text-align: center;
+}
+.authHeaderLogo img {
+    width: 60%;
+}
+#myTabContent {
+    border: 1px solid #dee2e6;
+    border-top: none;
+    padding: 15px 15px;
+    border-bottom-left-radius: .25em;
+    border-bottom-right-radius: .25em;
+}
+.authInputNameBlock {
+    font-family: "Open Sans";
+    font-size: 14px;
+}
+.authInputBlock input {
+    width: 100%;
+    height: 35px;
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #495057;
+    border-bottom: 1px solid #ced4da;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+}
+.auth_btn {
+    width: 100%;
+    min-height: 45px;
+    background: #de052a;
+    border: 1px solid #de052a;
+    border-radius: .25em;
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+}
+label {
+    margin-bottom: 0!important;
+}
+@media screen and (max-width: 320px) {
+    .auth_bg {
+        align-items: baseline;
+    }
+    .authCopy_text {
+        font-size: 12px!important;
+    }
+}
+@media screen and (max-width: 450px) {
+    .authCopy {
+        margin-left: -15px;
+        bottom: 3px!important;
+    }
+    .authCopy_text {
+        font-size: 14px;
+    }
+}
