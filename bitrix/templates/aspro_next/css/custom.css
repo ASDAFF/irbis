@@ -79,3 +79,36 @@ span.price_measure {
     display: block;
     position: absolute;
 }
+
+.info_item .element_3d {
+    display: block;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 1;
+
+    font-size: 35px;
+    text-align: center;
+    line-height: normal;
+    text-transform: uppercase;
+    color: #bd1c3c;
+    font-weight: 700;
+
+    transition: color 0.35s ease-in;
+}
+
+.info_item .element_3d:hover {
+    color: #d82044;
+}
+
+.pro360 {
+    height:500px;
+    position:relative;
+    width:500px;
+    margin:auto;
+    border:1px solid silver;
+}
+
+.container-3d {
+    max-width: 600px; max-height: 600px;
+}

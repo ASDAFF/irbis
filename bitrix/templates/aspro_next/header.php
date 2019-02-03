@@ -19,8 +19,18 @@ $APPLICATION->SetAdditionalCss(SITE_TEMPLATE_PATH."/css/custom-".SITE_ID.".css",
 	<?$APPLICATION->ShowHead();?>
 	<?$APPLICATION->AddHeadString('<script>BX.message('.CUtil::PhpToJSObject( $MESS, false ).')</script>', true);?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-	<?if($bIncludedModule)
+    <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/vendor/css/poi.css">
+    <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/vendor/css/pro360.css">
+    <link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/vendor/css/toolbox.css">
+    <?if($bIncludedModule)
 		CNext::Start(SITE_ID);?>
+    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/vendor/js/EasePack.min.js"></script>
+    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/vendor/js/konva.js"></script>
+    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/vendor/js/pre-loader.js"></script>
+    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/vendor/js/TweenLite.min.js"></script>
+    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/vendor/js/TweenMax.min.js"></script>
+    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/vendor/js/underscore.js"></script>
+    <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/vendor/js/script.js"></script>
 </head>
 <?$bIndexBot = (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && strpos($_SERVER['HTTP_USER_AGENT'], 'Lighthouse') !== false);?>
 <body class="<?=($bIndexBot ? "wbot" : "");?> site_<?=SITE_ID?> <?=($bIncludedModule ? "fill_bg_".strtolower(CNext::GetFrontParametrValue("SHOW_BG_BLOCK")) : "");?>" id="main">

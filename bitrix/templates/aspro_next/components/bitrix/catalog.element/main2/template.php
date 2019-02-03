@@ -150,7 +150,7 @@ setViewedProduct(<?=$arResult['ID']?>, <?=CUtil::PhpToJSObject($arViewedData, fa
 <meta itemprop="category" content="<?=$arResult['CATEGORY_PATH']?>" />
 <meta itemprop="description" content="<?=(strlen(strip_tags($arResult['PREVIEW_TEXT'])) ? strip_tags($arResult['PREVIEW_TEXT']) : (strlen(strip_tags($arResult['DETAIL_TEXT'])) ? strip_tags($arResult['DETAIL_TEXT']) : $name))?>" />
 <div class="item_main_info <?=(!$showCustomOffer ? "noffer" : "");?> <?=($arParams["SHOW_UNABLE_SKU_PROPS"] != "N" ? "show_un_props" : "unshow_un_props");?>" id="<?=$arItemIDs["strMainID"];?>">
-	<div class="img_wrapper swipeignore">
+    <div class="img_wrapper swipeignore">
 		<div class="stickers">
 			<?$prop = ($arParams["STIKERS_PROP"] ? $arParams["STIKERS_PROP"] : "HIT");?>
 			<?foreach(CNext::GetItemStickers($arResult["PROPERTIES"][$prop]) as $arSticker):?>
@@ -326,9 +326,10 @@ setViewedProduct(<?=$arResult['ID']?>, <?=CUtil::PhpToJSObject($arViewedData, fa
 				<div class="top_info">
 					<div class="rows_block">
 						<?$col=1;
-						if($isArticle && $arResult["BRAND_ITEM"] && $arParams["SHOW_RATING"] == "Y"){
-							$col=3;
-						}elseif(($isArticle && $arResult["BRAND_ITEM"]) || ($isArticle && $arParams["SHOW_RATING"] == "Y") || ($arResult["BRAND_ITEM"] && $arParams["SHOW_RATING"] == "Y")){
+						$is_3D = true;
+						if ($isArticle && $arResult["BRAND_ITEM"] && $arParams["SHOW_RATING"] == "Y") {
+							$col=4;
+						} elseif (($isArticle && $arResult["BRAND_ITEM"]) || ($isArticle && $arParams["SHOW_RATING"] == "Y") || ($arResult["BRAND_ITEM"] && $arParams["SHOW_RATING"] == "Y")){
 							$col=2;
 						}?>
 						<?if($arParams["SHOW_RATING"] == "Y"):?>
@@ -362,7 +363,17 @@ setViewedProduct(<?=$arResult['ID']?>, <?=CUtil::PhpToJSObject($arViewedData, fa
 								</div>
 							</div>
 						<?endif;?>
-
+                        <?if ($is_3D):?>
+                            <div style="display: none;" id="test">
+                                <h2>Hello!</h2>
+                                <p>You are awesome!</p>
+                            </div>
+                            <div class="item_block col-4">
+                                <span href="javascript:;" class="element_3d">
+                                    3D
+                                </span>
+                            </div>
+                        <?endif;?>
 						<?if($arResult["BRAND_ITEM"]){?>
 							<div class="item_block col-<?=$col;?>">
 								<div class="brand">
@@ -1728,5 +1739,50 @@ if ($arResult['CATALOG'] && $arParams['USE_GIFTS_MAIN_PR_SECTION_LIST'] == 'Y' &
 		ADD_ERROR_COMPARE: '<? echo GetMessage("ADD_ERROR_COMPARE"); ?>',
 		ONE_CLICK_BUY: '<? echo GetMessage("ONE_CLICK_BUY"); ?>',
 		SITE_ID: '<? echo SITE_ID; ?>'
-	})
+	});
+
+    $('.element_3d').click(function () {
+      $.fancybox.open({
+        type : 'inline',
+        content: '<div class="container-3d">' +
+        '<div class="pro360"></div>' +
+        '</div>',
+        opts: {
+          fitToView	: false,
+          width		: '100%',
+          height	: '100%',
+          autoSize	: false,
+          closeClick	: false,
+          openEffect	: 'none',
+          closeEffect	: 'none'
+        }
+      });
+
+      var Config = {
+        "kross": {
+          "allow360X":false,
+          "toolbox": ["up","left","down","right","center"],
+          "interaction": "mousemove", // "drag"
+          "impetus": "true", //"false"
+          "containerSelector": ".pro360",
+          "autoplay": {"interval": 150, "bounce": true},//frame timeout
+          "folder":"/upload/3d/product/360/1/<?=$arResult['ID'];?>/500/",
+          "zoomfolder":"/upload/3d/product/360/1/<?=$arResult['ID'];?>/2000/",
+          "file": function(x,y) {	return (y == 8 ? pad(x,3):pad(50-y,3))  + ".jpg"},
+          "type": "cross",
+          "startX":14,
+          "startY":8,
+          "minX": 1,
+          "maxX": 28,
+          "minY": 1,
+          "maxY": 23,
+          "width": 320,
+          "height": 320,
+          "zoomfactor": 3,
+          "invertScrollY":1
+        }
+      };
+
+      window.kross = new PRO360(Config.kross);
+    });
 </script>
