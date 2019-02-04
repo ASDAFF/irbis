@@ -326,12 +326,18 @@ setViewedProduct(<?=$arResult['ID']?>, <?=CUtil::PhpToJSObject($arViewedData, fa
 				<div class="top_info">
 					<div class="rows_block">
 						<?$col=1;
-						$is_3D = true;
+						$is_3D = $arResult['PROPERTIES']['PROP_3D_ID']['VALUE'];
+
 						if ($isArticle && $arResult["BRAND_ITEM"] && $arParams["SHOW_RATING"] == "Y") {
-							$col=4;
-						} elseif (($isArticle && $arResult["BRAND_ITEM"]) || ($isArticle && $arParams["SHOW_RATING"] == "Y") || ($arResult["BRAND_ITEM"] && $arParams["SHOW_RATING"] == "Y")){
+							$col=3;
+						}  elseif (($isArticle && $arResult["BRAND_ITEM"]) || ($isArticle && $arParams["SHOW_RATING"] == "Y") || ($arResult["BRAND_ITEM"] && $arParams["SHOW_RATING"] == "Y")){
 							$col=2;
-						}?>
+						}
+
+                        if ($is_3D) {
+                            $col = 4;
+                        }
+						?>
 						<?if($arParams["SHOW_RATING"] == "Y"):?>
 							<div class="item_block col-<?=$col;?>">
 								<?$frame = $this->createFrame('dv_'.$arResult["ID"])->begin('');?>
@@ -1740,49 +1746,50 @@ if ($arResult['CATALOG'] && $arParams['USE_GIFTS_MAIN_PR_SECTION_LIST'] == 'Y' &
 		ONE_CLICK_BUY: '<? echo GetMessage("ONE_CLICK_BUY"); ?>',
 		SITE_ID: '<? echo SITE_ID; ?>'
 	});
+    <?if($is_3D):?>
+        $('.element_3d').click(function () {
+          $.fancybox.open({
+            type : 'inline',
+            content: '<div class="container-3d">' +
+            '<div class="pro360"></div>' +
+            '</div>',
+            opts: {
+              fitToView	: false,
+              width		: '100%',
+              height	: '100%',
+              autoSize	: false,
+              closeClick	: false,
+              openEffect	: 'none',
+              closeEffect	: 'none'
+            }
+          });
 
-    $('.element_3d').click(function () {
-      $.fancybox.open({
-        type : 'inline',
-        content: '<div class="container-3d">' +
-        '<div class="pro360"></div>' +
-        '</div>',
-        opts: {
-          fitToView	: false,
-          width		: '100%',
-          height	: '100%',
-          autoSize	: false,
-          closeClick	: false,
-          openEffect	: 'none',
-          closeEffect	: 'none'
-        }
-      });
+          var Config = {
+            "kross": {
+              "allow360X":false,
+              "toolbox": ["up","left","down","right","center"],
+              "interaction": "mousemove", // "drag"
+              "impetus": "true", //"false"
+              "containerSelector": ".pro360",
+              "autoplay": {"interval": 150, "bounce": true},//frame timeout
+              "folder":"/upload/3d/product/<?=$arResult['PROPERTIES']['PROP_3D_ID']['VALUE'];?>/360/1/500/",
+              "zoomfolder":"/upload/3d/product/<?=$arResult['PROPERTIES']['PROP_3D_ID']['VALUE'];?>/360/1/2000/",
+              "file": function(x,y) {	return (y == 8 ? pad(x,3):pad(50-y,3))  + ".jpg"},
+              "type": "cross",
+              "startX":14,
+              "startY":8,
+              "minX": 1,
+              "maxX": 28,
+              "minY": 1,
+              "maxY": 23,
+              "width": 320,
+              "height": 320,
+              "zoomfactor": 3,
+              "invertScrollY":1
+            }
+          };
 
-      var Config = {
-        "kross": {
-          "allow360X":false,
-          "toolbox": ["up","left","down","right","center"],
-          "interaction": "mousemove", // "drag"
-          "impetus": "true", //"false"
-          "containerSelector": ".pro360",
-          "autoplay": {"interval": 150, "bounce": true},//frame timeout
-          "folder":"/upload/3d/product/360/1/<?=$arResult['ID'];?>/500/",
-          "zoomfolder":"/upload/3d/product/360/1/<?=$arResult['ID'];?>/2000/",
-          "file": function(x,y) {	return (y == 8 ? pad(x,3):pad(50-y,3))  + ".jpg"},
-          "type": "cross",
-          "startX":14,
-          "startY":8,
-          "minX": 1,
-          "maxX": 28,
-          "minY": 1,
-          "maxY": 23,
-          "width": 320,
-          "height": 320,
-          "zoomfactor": 3,
-          "invertScrollY":1
-        }
-      };
-
-      window.kross = new PRO360(Config.kross);
-    });
+          window.kross = new PRO360(Config.kross);
+        });
+    <?endif;?>
 </script>
