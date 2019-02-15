@@ -82,7 +82,7 @@ $logoClass = ($arTheme['COLORED_LOGO']['VALUE'] !== 'Y' ? '' : ' colored');
                         })(window,document,'https://b24.irbis-td.ru/bitrix/js/crm/form_loader.js','b24form');
 
                         b24form({"id":"3","lang":"ru","sec":"2cizv2","type":"button","click":""});
-                    </script><span class="foto_search twosmallfont colored  white btn-default btn b24-web-form-popup-btn-3"><i class="fas fa-camera"></i>Поиск по фото</span>
+                    </script><span class="foto_search twosmallfont colored  white btn-default btn b24-web-form-popup-btn-3"><i class="fas fa-camera"></i>Заказать по фото</span>
 				</div>
 			</div>
 		<?endif;?>
